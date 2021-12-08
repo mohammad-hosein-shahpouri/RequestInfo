@@ -20,5 +20,8 @@ export function NetworkInfo() {
   return (<Fragment>
   
   {ip}
+  {countryCode}
+  {countryName}
+  {timeZone}
   </Fragment>)
 }
