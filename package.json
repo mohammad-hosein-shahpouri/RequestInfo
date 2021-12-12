@@ -29,6 +29,10 @@
     "deploy": "gh-pages -d build -b gh-pages"
   },
   "eslintConfig": {
+    "rules":{
+      "no-unused-vars": 0,
+      "@typescript-eslint/no-unused-vars": 0
+    },
     "extends": [
       "react-app",
       "react-app/jest"
