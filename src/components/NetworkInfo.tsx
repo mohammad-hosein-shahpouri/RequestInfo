@@ -5,6 +5,15 @@ import { GetInfoAsync } from "../utils/request/NetworkInformation";
 
 export function NetworkInfo() {
   const context = useContext(NetworkInfoContext);
+  const flagUrl =
+    process.env.REACT_APP_FLAG_IMAGE_URL +
+    context.Info.country_code2 +
+    process.env.REACT_APP_FLAG_IMAGE_TYPE;
 
-  return <Fragment>{context.Info.city}</Fragment>;
+  return (
+    <Fragment>
+      <img src={flagUrl} alt={context.Info.country_name} />
+      {context.Info.city}
+    </Fragment>
+  );
 }

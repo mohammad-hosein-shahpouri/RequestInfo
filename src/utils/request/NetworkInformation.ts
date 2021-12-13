@@ -7,6 +7,8 @@ export async function GetInfoAsync() {
   var request = await fetch(url + apiKey, {
     method: "GET",
   });
+  
   var data = (await request.json()) as ApiResponseType;
+  console.log(data);
   return data;
 }
