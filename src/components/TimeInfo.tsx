@@ -8,7 +8,7 @@ export function TimeInfo() {
     (Math.floor(Info.time_zone.offset) > 0
       ? "+" + Math.floor(Info.time_zone.offset)
       : Math.floor(Info.time_zone.offset)) +
-    ((Info.time_zone.offset / 0.5) % 2 != 0 ? ":30" : ":00");
+    ((Info.time_zone.offset / 0.5) % 2 !== 0 ? ":30" : ":00");
 
   var now = new Date(Info.time_zone.current_time);
   return (
