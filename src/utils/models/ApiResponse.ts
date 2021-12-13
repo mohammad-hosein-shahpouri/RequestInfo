@@ -1,32 +1,46 @@
 export type ApiResponseType = {
-  status: string;
-  continent: string;
-  continentCode: string;
-  country: string;
-  countryCode: string;
-  region: string;
-  regionName: string;
-  city: string;
+  ip: string;
+  continent_code: string;
+  continent_name: string;
+  country_code2: string;
+  country_code3: string;
+  country_name: string;
+  country_capital: string;
+  state_prov: string;
   district: string;
-  zip: string;
+  city: string;
+  zipcode: string;
+  latitude: string;
+  longitude: string;
 
-  lat: number;
-  lon: number;
+  is_eu: boolean;
 
-  timezone: string;
-
-  offset: number;
-
-  currency: string;
+  calling_code: string;
+  country_tld: string;
+  languages: string;
+  country_flag: string;
+  geoname_id: string;
   isp: string;
-  org: string;
-  as: string;
-  asname: string;
-  reverse: string;
+  connection_type: string;
+  organization: string;
 
-  mobile: boolean;
-  proxy: boolean;
-  hosting: boolean;
+  currency: {
+    code: string;
+    name: string;
+    symbol: string;
+  };
 
-  query: string;
+  time_zone: {
+    name: string;
+
+    offset: number;
+
+    current_time: string;
+
+    current_time_unix: number;
+
+    is_dst: boolean;
+    
+    dst_savings: number;
+  };
 };

@@ -17,7 +17,7 @@ export function App() {
 
   useLayoutEffect(() => {
     (async () => {
-      let info = await GetInfoAsync();
+      let info = await GetInfoAsync();      
       setNetworkInfo(info);
     })();
   }, []);
