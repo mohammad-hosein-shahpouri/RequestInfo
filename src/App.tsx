@@ -4,6 +4,7 @@ import { far } from "@fortawesome/free-regular-svg-icons";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 import React, { useLayoutEffect, useState } from "react";
 import { Layout } from "./components/Layout";
+import { NetworkInfo } from "./components/NetworkInfo";
 import { ApiResponseType } from "./utils/models/ApiResponse";
 import { NetworkInfoContext } from "./utils/models/Context";
 
@@ -21,7 +22,7 @@ export function App({ data }: props) {
       value={{ Info: networkInfo, SetInfo: setNetworkInfo }}
     >
       <Layout>
-        <p>sad</p>
+        <NetworkInfo></NetworkInfo>
       </Layout>
     </NetworkInfoContext.Provider>
   );
