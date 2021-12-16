@@ -5,7 +5,7 @@ export function Footer() {
   const now = new Date();
   return (
     <Fragment>
-      <div className="bg-secondary text-white d-flex flex-column flex-md-row justify-content-between py-1 px-1 px-md-4">
+      <footer className=" d-flex flex-column flex-md-row justify-content-between py-1 px-1 px-md-4">
         <span className="text-center d-block">
           © {now.getUTCFullYear()} - Mohammad Hosein Shahpouri
         </span>
@@ -16,8 +16,8 @@ export function Footer() {
           <span className="">and</span>          
           <FontAwesomeIcon icon="coffee" className="text-light mx-1" /> 
         </p>
-      </div>
-      <p className="bg-light text-center mb-0">
+      </footer>
+      <p className=" text-center mb-0">
           <FontAwesomeIcon icon={["fab","react"]} className="mx-1 mt-1 text-info" /> 
           <span className=" text-info">{version}</span>         
       </p>

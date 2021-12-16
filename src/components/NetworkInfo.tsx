@@ -47,24 +47,24 @@ export function NetworkInfo() {
 
   return (
     <Fragment>
-      <div className="col-11">
+      <div className="col-11 col-lg-5">
         <h1 className="text-center mb-0 mt-2">You're connected to:</h1>
         <h1 className="text-center">{Info.ip}</h1>
       </div>
-      <div className="col-11 d-flex flex-column">
+      <div className="col-11 col-lg-5 d-flex flex-column">
         <h2 className="text-center">From {Info.country_name}</h2>
-        <img src={flagUrl} alt={Info.country_name} className="rounded-3" />
+        <img src={flagUrl} id="flag" alt={Info.country_name} className="rounded-3" />
       </div>
-      <div className="col-11">
+      <div className="col-11 col-lg-5">
         <h3 className="text-center mt-2">On Map:</h3>
         <div
-          style={{ height: "200px" }}
           className="rounded-3"
           ref={mapRef}
+          id="map"
         ></div>
       </div>
 
-      <div className="col-12">
+      <div className="col-12  col-lg-5">
         <h3 className="text-center mt-2">Extra Information:</h3>
         <div className="d-flex flex-row justify-content-between">
           <h4>Continent:</h4>
