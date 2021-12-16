@@ -4,6 +4,8 @@ import { NetworkInfoContext } from "../utils/models/Context";
 import "leaflet/dist/leaflet.css";
 import { TimeInfo } from "./TimeInfo";
 import { ClientInfo } from "./ClientInfo";
+import MarkerIcon from "leaflet/dist/images/marker-icon.png";
+import { History } from "./History";
 
 export function NetworkInfo() {
   const mapRef = useRef<HTMLDivElement>(null);
@@ -15,6 +17,10 @@ export function NetworkInfo() {
     process.env.REACT_APP_FLAG_IMAGE_TYPE;
 
   useEffect(() => {
+    var icon = L.icon({
+      iconUrl: MarkerIcon,      
+    });
+
     var map = L.map(mapRef.current!).setView(
       {
         lat: Number(Info.latitude),
@@ -22,13 +28,18 @@ export function NetworkInfo() {
       },
       13
     );
+
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png").addTo(
       map
     );
-    L.marker({
-      lat: Number(Info.latitude),
-      lng: Number(Info.longitude),
-    })
+
+    L.marker(
+      {
+        lat: Number(Info.latitude),
+        lng: Number(Info.longitude),
+      },
+      { icon }
+    )
       .addTo(map)
       .bindPopup("Your Location")
       .openPopup();
@@ -87,6 +98,8 @@ export function NetworkInfo() {
         <TimeInfo />
         <hr />
         <ClientInfo />
+        <hr/>
+        <History />
       </div>
     </Fragment>
   );

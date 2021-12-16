@@ -17,9 +17,9 @@ export function Footer() {
           <FontAwesomeIcon icon="coffee" className="text-light mx-1" /> 
         </p>
       </div>
-      <p className="bg-light text-info text-center">
-          <FontAwesomeIcon icon={["fab","react"]} className="mx-1 mt-1" /> 
-          <span>{version}</span>         
+      <p className="bg-light text-center mb-0">
+          <FontAwesomeIcon icon={["fab","react"]} className="mx-1 mt-1 text-info" /> 
+          <span className=" text-info">{version}</span>         
       </p>
     </Fragment>
   );

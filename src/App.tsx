@@ -5,6 +5,7 @@ import { fas } from "@fortawesome/free-solid-svg-icons";
 import React, { useLayoutEffect, useState } from "react";
 import { Layout } from "./components/Layout";
 import { NetworkInfo } from "./components/NetworkInfo";
+import { AddToHistory } from "./utils/history/History";
 import { ApiResponseType } from "./utils/models/ApiResponse";
 import { NetworkInfoContext } from "./utils/models/Context";
 

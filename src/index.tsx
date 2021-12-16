@@ -1,20 +1,30 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { App } from "./App";
-import { NetworkInfoContext } from "./utils/models/Context";
 import { GetInfoAsync } from "./utils/request/NetworkInformation";
-import "bootstrap/dist/css/bootstrap.min.css"
-import "antd/dist/antd.dark.min.css"
-import "bootstrap-icons/font/bootstrap-icons.css"
+import "bootstrap/dist/css/bootstrap.min.css";
+import { AddToHistory } from "./utils/history/History";
 require("dotenv").config();
 
 const rootElement = document.getElementById("app");
 
-GetInfoAsync().then((data) => {
-  ReactDOM.render(
-    <React.StrictMode>
-      <App data={data} />
-    </React.StrictMode>,
-    rootElement
-  );
-});
+GetInfoAsync()
+  .then((data) => {
+    AddToHistory({
+      location: `${data.city}, ${data.country_name}`,
+      locationShort: data.country_code2,
+    });
+
+    ReactDOM.render(
+      <React.StrictMode>
+        <App data={data} />
+      </React.StrictMode>,
+      rootElement
+    );
+  })
+  .catch((err) => {
+    var el = document.querySelector("#loader p") as HTMLParagraphElement;
+    el.innerHTML = "Something Went Wrong <br /> Please Try Again Later";
+    el.style.whiteSpace = "normal";
+    console.error(err);
+  });

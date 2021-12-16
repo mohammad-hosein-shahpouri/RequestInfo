@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
+    <meta name="theme-color" content="#094954" />
     <meta
       name="description"
       content="Web site created using create-react-app"
@@ -23,8 +23,9 @@
         --mosaic-blue: #00758f;
       }
 
-      * {
+      *:not(svg,path,.leaflet-popup-content) {
         font-family: "Archivo", "Allerta", sans-serif !important;
+        color: var(--light);
       }
 
       body {
