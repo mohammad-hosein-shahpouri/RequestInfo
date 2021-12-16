@@ -17,7 +17,8 @@ type props = {
 
 export function App({ data }: props) {
   const [networkInfo, setNetworkInfo] = useState<ApiResponseType>(data);
-
+  document.title = `You're Connected to ${data.country_name}(${data.ip})`;
+  
   return (
     <NetworkInfoContext.Provider
       value={{ Info: networkInfo, SetInfo: setNetworkInfo }}

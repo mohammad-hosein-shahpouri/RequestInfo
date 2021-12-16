@@ -4,6 +4,7 @@ import { App } from "./App";
 import { GetInfoAsync } from "./utils/request/NetworkInformation";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { AddToHistory } from "./utils/history/History";
+import { RegisterServiceWorker } from "./utils/ServiceWorker";
 require("dotenv").config();
 
 const rootElement = document.getElementById("app");
@@ -28,3 +29,5 @@ GetInfoAsync()
     el.style.whiteSpace = "normal";
     console.error(err);
   });
+
+RegisterServiceWorker();
