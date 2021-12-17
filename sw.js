@@ -24,12 +24,15 @@ self.addEventListener("install", (e) => {
 });
 
 self.addEventListener("fetch", (e) => {
-  e.respondWith(
-    caches.match(e.request).then((respose) => {
-      if (respose) return respose;
-      return fetch(e.request);
-    })
-  );
+  e.respondWith(async function(){
+  const cache = await caches.open(cacheKey)
+  const cachedResponse = await cache.match(e.request);
+  if (cachedResponse) { 
+    e.waitUntil(cache.add(e.request));
+      return cachedResponse;
+    }
+    return fetch(e.request);  
+  });
 });
 
 self.addEventListener("activate", (e) => {
