@@ -1,20 +1,16 @@
 const cacheKey = "pwa-cache-v1";
 var urlsToCache = [
-  "/",
   "/RequestInfo/",
   "/RequestInfo/index.html",
   "/RequestInfo/styles.css",
   "/RequestInfo/manifest.json",
   "/RequestInfo/favicon.svg",
+  "/RequestInfo/favicon.png",
   "/RequestInfo/earth-dark.svg",
   "/RequestInfo/earth-light.svg",
   "/RequestInfo/static/js/2.43a1e59c.chunk.js",
   "/RequestInfo/static/js/main.678eecdb.chunk.js",
   "/RequestInfo/static/css/2.9d3f7eb1.chunk.css",
-  //Development
-  "/RequestInfo/static/js/bundle.js",
-  "/RequestInfo/static/js/vendors~main.chunk.js",
-  "/RequestInfo/static/js/main.chunk.js",
 ];
 
 self.addEventListener("install", (e) => {
