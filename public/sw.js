@@ -1,7 +1,7 @@
 const cacheKey = "pwa-cache-v1";
 var urlsToCache = [
   "/",
-  "/RequestInfo",
+  "/RequestInfo/",
   "/RequestInfo/index.html",
   "/RequestInfo/styles.css",
   "/RequestInfo/manifest.json",
@@ -9,10 +9,12 @@ var urlsToCache = [
   "/RequestInfo/earth-dark.svg",
   "/RequestInfo/earth-light.svg",
   "/RequestInfo/static/js/2.43a1e59c.chunk.js",
-  "/RequestInfo/static/js/main.c36798b4.chunk.js",
+  "/RequestInfo/static/js/main.678eecdb.chunk.js",
   "/RequestInfo/static/css/2.9d3f7eb1.chunk.css",
-  //Font
-  "https://fonts.googleapis.com/css2?family=Allerta&family=Archivo:wght@500;700&display=swap",
+  //Development
+  "/RequestInfo/static/js/bundle.js",
+  "/RequestInfo/static/js/vendors~main.chunk.js",
+  "/RequestInfo/static/js/main.chunk.js",
 ];
 
 self.addEventListener("install", (e) => {
@@ -21,16 +23,45 @@ self.addEventListener("install", (e) => {
     return cache.addAll(urlsToCache);
   };
 
-  e.waitUntil(preCache());
+  e.waitUntil(caches.open(cacheKey).then((c) => c.addAll(urlsToCache)));
 });
 
-self.addEventListener("fetch", (e) => {
-  e.respondWith(
-    caches.match(e.request).then((respose) => {
-      if (respose) return respose;
-      return fetch(e.request);
-    })
-  );
+self.addEventListener("fetch", (event) => {
+  let url =
+    event.request.url.indexOf(self.location.origin) !== -1
+      ? event.request.url.split(`${self.location.origin}/`)[1]
+      : event.request.url;
+  let isFileCached = $FILES.indexOf(url) !== -1;
+
+  if (isFileCached) {
+    event.respondWith(
+      caches
+        .open(cacheKey)
+        .then((cache) => {
+          return cache.match(url).then((response) => {
+            if (response) {
+              return response;
+            }
+            throw Error("There is not response for such request", url);
+          });
+        })
+        .catch((error) => {
+          return fetch(event.request);
+        })
+    );
+  }
+
+  // e.respondWith(
+  //   (async function () {
+  //     const cache = await caches.open(cacheKey);
+  //     const cachedResponse = await cache.match(e.request);
+  //     if (cachedResponse) {
+  //       e.waitUntil(cache.add(e.request));
+  //       return cachedResponse;
+  //     }
+  //     return fetch(e.request);
+  //   })()
+  // );
 });
 
 self.addEventListener("activate", (e) => {
@@ -43,5 +74,20 @@ self.addEventListener("activate", (e) => {
     });
   };
 
-  e.waitUntil(updateCache());
+  e.waitUntil(
+    caches
+      .open(cacheKey)
+      .then((cache) => {
+        return cache.keys().then((cacheNames) => {
+          return Promise.all(
+            cacheNames
+              .filter((name) => urlsToCache.indexOf(name) === -1)
+              .map((name) => caches.delete(name))
+          );
+        });
+      })
+      .then(() => {
+        return self.clients.claim();
+      })
+  );
 });
