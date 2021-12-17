@@ -32,7 +32,7 @@ self.addEventListener("fetch", (e) => {
       return cachedResponse;
     }
     return fetch(e.request);  
-  });
+  }());
 });
 
 self.addEventListener("activate", (e) => {
