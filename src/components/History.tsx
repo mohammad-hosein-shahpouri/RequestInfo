@@ -7,19 +7,22 @@ export function History() {
 
   const connections = () => {
     var items = [];
+    var parentIndex = 0
     for (const key in history) {
-      var x = history[key] as HistoryModel[];
-      var connectionGroup = [];
-      for (const item of x) {
+      var historyLogs = history[key] as HistoryModel[];
+      var connectionGroup = [];      
+      let childIndex = 0
+      for (const item of historyLogs) {
         connectionGroup.push(
-          <div className="d-flex flex-row justify-content-between">
+          <div className="d-flex flex-row justify-content-between" key={childIndex++}>
             <h4>{item.Location}</h4>
             <h4>{item.Time}</h4>
           </div>
         );
       }
+
       items.push(
-        <details>
+        <details key={parentIndex++}>
           <summary className="h3">{key}</summary>
           {connectionGroup.reverse()}
         </details>

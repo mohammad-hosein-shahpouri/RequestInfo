@@ -1,6 +1,7 @@
 const cacheKey = "pwa-cache-v1";
 var urlsToCache = [
   "/",
+  "/RequestInfo",
   "/RequestInfo/index.html",
   "/RequestInfo/styles.css",
   "/RequestInfo/manifest.json",
@@ -11,16 +12,16 @@ var urlsToCache = [
   "/RequestInfo/static/js/main.c36798b4.chunk.js",
   "/RequestInfo/static/css/2.9d3f7eb1.chunk.css",
   //Font
-  "https://fonts.googleapis.com/css2?family=Allerta&family=Archivo:wght@500;700&display=swap"
+  "https://fonts.googleapis.com/css2?family=Allerta&family=Archivo:wght@500;700&display=swap",
 ];
 
 self.addEventListener("install", (e) => {
-  e.waitUntill(
-    caches.open(cacheKey).then((cache) => {
-      console.log("cache opened");
-      return cache.addAll(urlsToCache);
-    })
-  );
+  const preCache = async () => {
+    const cache = await caches.open(cacheKey);
+    return cache.addAll(urlsToCache);
+  };
+
+  e.waitUntil(preCache());
 });
 
 self.addEventListener("fetch", (e) => {
@@ -35,13 +36,12 @@ self.addEventListener("fetch", (e) => {
 self.addEventListener("activate", (e) => {
   var cacheList = [cacheKey];
 
-  e.waitUntill(
-    caches.keys().then((names) => {
-      return Promise.all((name) => {
-        if (cacheList.indexOf(name) == -1) {
-          caches.delete(name);
-        }
-      });
-    })
-  );
+  const updateCache = async () => {
+    var cacheKeys = await caches.keys();
+    return cacheKeys.map((key) => {
+      if (cacheList.indexOf(key) == -1) return caches.delete(key);
+    });
+  };
+
+  e.waitUntil(updateCache());
 });

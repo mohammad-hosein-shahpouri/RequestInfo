@@ -27,6 +27,7 @@ GetInfoAsync()
     var el = document.querySelector("#loader p") as HTMLParagraphElement;
     el.innerHTML = "Something Went Wrong <br /> Please Try Again Later";
     el.style.whiteSpace = "normal";
+    document.title = "Something Went Wrong";
     console.error(err);
   });
 
