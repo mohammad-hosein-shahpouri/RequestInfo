@@ -1,6 +1,5 @@
 const cacheKey = "pwa-cache-v1";
 var urlsToCache = [
-  "/",
   "/RequestInfo",
   "/RequestInfo/index.html",
   "/RequestInfo/styles.css",
