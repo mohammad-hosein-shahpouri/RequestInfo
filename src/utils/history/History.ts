@@ -10,7 +10,7 @@ export const LocalStorageKey = "History";
 export function AddToHistory({ location, locationShort }: addToHistoryProps) {
   const now = new Date();
   const time = `${now.getHours()}:${now.getMinutes()}`;
-  const today = `${now.getDay()}/${now.getMonth()}/${now.getFullYear()}`;
+  const today = `${now.getDate()}/${now.getMonth()}/${now.getFullYear()}`;
 
   var currentConnection: History = {
     Location: location,
