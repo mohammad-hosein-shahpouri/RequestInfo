@@ -10,11 +10,7 @@ var urlsToCache = [
   "/RequestInfo/earth-light.svg",
   "/RequestInfo/static/js/2.43a1e59c.chunk.js",
   "/RequestInfo/static/js/main.678eecdb.chunk.js",
-  "/RequestInfo/static/css/2.9d3f7eb1.chunk.css",
-  //Development
-  "/RequestInfo/static/js/bundle.js",
-  "/RequestInfo/static/js/vendors~main.chunk.js",
-  "/RequestInfo/static/js/main.chunk.js",
+  "/RequestInfo/static/css/2.9d3f7eb1.chunk.css"
 ];
 
 self.addEventListener("install", (e) => {
@@ -31,7 +27,7 @@ self.addEventListener("fetch", (event) => {
     event.request.url.indexOf(self.location.origin) !== -1
       ? event.request.url.split(`${self.location.origin}/`)[1]
       : event.request.url;
-  let isFileCached = $FILES.indexOf(url) !== -1;
+  let isFileCached = urlsToCache.indexOf(url) !== -1;
 
   if (isFileCached) {
     event.respondWith(
