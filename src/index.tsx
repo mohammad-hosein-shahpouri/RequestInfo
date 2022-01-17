@@ -16,12 +16,12 @@ GetInfoAsync()
       locationShort: data.country_code2,
     });
 
-    ReactDOM.render(
-      <React.StrictMode>
-        <App data={data} />
-      </React.StrictMode>,
-      rootElement
-    );
+    //ReactDOM.render(
+    //  <React.StrictMode>
+     //   <App data={data} />
+    //  </React.StrictMode>,
+    //  rootElement
+   // );
   })
   .catch((err) => {
     var el = document.querySelector("#loader p") as HTMLParagraphElement;
