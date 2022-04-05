@@ -1,6 +1,6 @@
 import { Fragment } from "react";
-import { GetHistory } from "../utils/history/History";
-import { History as HistoryModel } from "../utils/models/History";
+import { GetHistory } from "utils/history/History";
+import { History as HistoryModel } from "utils/models/History";
 
 export function History() {
   var history = GetHistory();
@@ -14,7 +14,7 @@ export function History() {
       let childIndex = 0
       for (const item of historyLogs) {
         connectionGroup.push(
-          <div className="d-flex flex-row justify-content-between" key={childIndex++}>
+          <div className="flex flex-row justify-between" key={childIndex++}>
             <h4>{item.Location}</h4>
             <h4>{item.Time}</h4>
           </div>
