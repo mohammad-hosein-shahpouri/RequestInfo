@@ -1,6 +1,11 @@
 import L from "leaflet";
-import React, { Fragment, useContext, useEffect, useRef } from "react";
-import { NetworkInfoContext } from "../utils/models/Context";
+import React, {
+  Fragment,
+  useContext,
+  useEffect,
+  useRef,
+} from "react";
+import { NetworkInfoContext } from "utils/models/Context";
 import "leaflet/dist/leaflet.css";
 import { TimeInfo } from "./TimeInfo";
 import { ClientInfo } from "./ClientInfo";
@@ -18,7 +23,7 @@ export function NetworkInfo() {
 
   useEffect(() => {
     var icon = L.icon({
-      iconUrl: MarkerIcon,      
+      iconUrl: MarkerIcon,
     });
 
     var map = L.map(mapRef.current!).setView(
@@ -53,15 +58,16 @@ export function NetworkInfo() {
       </div>
       <div className="w-11/12 lg:w-5/12 flex flex-col">
         <h2 className="text-center">From {Info.country_name}</h2>
-        <img src={flagUrl} id="flag" alt={Info.country_name} className="rounded-lg" />
+        <img
+          src={flagUrl}
+          id="flag"
+          alt={Info.country_name}
+          className="rounded-lg"
+        />
       </div>
       <div className="w-11/12 lg:w-5/12">
         <h3 className="text-center mt-2">On Map:</h3>
-        <div
-          className="rounded-lg"
-          ref={mapRef}
-          id="map"
-        ></div>
+        <div className="rounded-lg" ref={mapRef} id="map"></div>
       </div>
 
       <div className="w-full lg:w-5/12">
@@ -98,7 +104,7 @@ export function NetworkInfo() {
         <TimeInfo />
         <hr />
         <ClientInfo />
-        <hr/>
+        <hr />
         <History />
       </div>
     </Fragment>

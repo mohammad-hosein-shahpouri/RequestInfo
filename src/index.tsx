@@ -1,12 +1,14 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import React, { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
 import { App } from "App";
 import { GetInfoAsync } from "utils/request/NetworkInformation";
 import { AddToHistory } from "utils/history/History";
 import { RegisterServiceWorker } from "utils/ServiceWorker";
 //require("dotenv").config();
 
-const rootElement = document.getElementById("app");
+const container = document.getElementById("app")!;
+
+const root = createRoot(container);
 
 GetInfoAsync()
   .then((data) => {
@@ -15,11 +17,8 @@ GetInfoAsync()
       locationShort: data.country_code2,
     });
 
-    ReactDOM.render(
-      <React.StrictMode>
+    root.render(
         <App data={data} />
-      </React.StrictMode>,
-      rootElement
     );
   })
   .catch((err) => {
