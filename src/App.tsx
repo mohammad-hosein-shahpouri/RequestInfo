@@ -1,7 +1,6 @@
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { fab } from "@fortawesome/free-brands-svg-icons";
-import { far } from "@fortawesome/free-regular-svg-icons";
-import { fas } from "@fortawesome/free-solid-svg-icons";
+import { faReact } from "@fortawesome/free-brands-svg-icons";
+import { faHeart,faCoffee } from "@fortawesome/free-solid-svg-icons";
 import React, { useLayoutEffect, useState } from "react";
 import { Layout } from "./components/Layout";
 import { NetworkInfo } from "./components/NetworkInfo";
@@ -9,7 +8,7 @@ import { AddToHistory } from "./utils/history/History";
 import { ApiResponseType } from "./utils/models/ApiResponse";
 import { NetworkInfoContext } from "./utils/models/Context";
 
-library.add(fab, fas, far);
+library.add(faReact, faHeart, faCoffee);
 
 type props = {
   data: ApiResponseType;
