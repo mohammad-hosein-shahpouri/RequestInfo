@@ -7,48 +7,43 @@ var urlsToCache = [
     "/RequestInfo/favicon.svg",
     "/RequestInfo/earth-dark.svg",
     "/RequestInfo/earth-light.svg",
-    // "/RequestInfo/static/js/2.43a1e59c.chunk.js",
-    "/RequestInfo/static/js/main.46fb4c24.js",
-    "/RequestInfo/static/css/main.4bc0f3ce.css",
-    //Development
-    //"/RequestInfo/static/js/bundle.js",
-    //"/RequestInfo/static/js/vendors~main.chunk.js",
-    //"/RequestInfo/static/js/main.chunk.js",
+
+    "/RequestInfo/assets/index.9c30d96e.js",
+    "/RequestInfo/assets/index.75f9b5c1.css",
 ];
 
 self.addEventListener("install", (e) => {
-    const preCache = async() => {
-        const cache = await caches.open(cacheKey);
-        return cache.addAll(urlsToCache);
-    };
+    // const preCache = async() => {
+    //     const cache = await caches.open(cacheKey);
+    //     return cache.addAll(urlsToCache);
+    // };
 
     e.waitUntil(caches.open(cacheKey).then((c) => c.addAll(urlsToCache)));
 });
 
 self.addEventListener("fetch", (event) => {
-    let url =
-        event.request.url.indexOf(self.location.origin) !== -1 ?
-        event.request.url.split(`${self.location.origin}/`)[1] :
-        event.request.url;
-    let isFileCached = $FILES.indexOf(url) !== -1;
+    let url = event.request.url.indexOf(self.location.origin) !== -1 ?
+        event.request.url.split(`${self.location.origin}/`)[1] : event.request.url;
 
-    if (isFileCached) {
-        event.respondWith(
-            caches
-            .open(cacheKey)
-            .then((cache) => {
-                return cache.match(url).then((response) => {
-                    if (response) {
-                        return response;
-                    }
-                    throw Error("There is not response for such request", url);
-                });
-            })
-            .catch((error) => {
-                return fetch(event.request);
-            })
-        );
-    }
+    //  let isFileCached = $FILES.indexOf(url) !== -1;
+
+    // if (isFileCached) {
+    event.respondWith(
+        caches
+        .open(cacheKey)
+        .then((cache) => {
+            return cache.match(url).then((response) => {
+                if (response) {
+                    return response;
+                }
+                throw Error("There is not response for such request", url);
+            });
+        })
+        .catch((error) => {
+            return fetch(event.request);
+        })
+    );
+    //}
 
     // e.respondWith(
     //   (async function () {
