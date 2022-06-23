@@ -1,8 +1,8 @@
 import { ApiResponseType } from "../models/ApiResponse";
 
 export async function GetInfoAsync() {
-  const url = process.env.REACT_APP_INFO_URL as string;
-  const apiKey = process.env.REACT_APP_API_KEY;
+  const url = import.meta.env.VITE_INFO_URL as string;
+  const apiKey = import.meta.env.VITE_API_KEY;
 
   var request = await fetch(url + apiKey, {
     method: "GET",

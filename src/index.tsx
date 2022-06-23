@@ -1,9 +1,9 @@
 import React, { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { App } from "App";
-import { GetInfoAsync } from "utils/request/NetworkInformation";
-import { AddToHistory } from "utils/history/History";
-import { RegisterServiceWorker } from "utils/ServiceWorker";
+import { App } from "./App";
+import { GetInfoAsync } from "./utils/request/NetworkInformation";
+import { AddToHistory } from "./utils/history/History";
+import { RegisterServiceWorker } from "./utils/ServiceWorker";
 //require("dotenv").config();
 
 const container = document.getElementById("app")!;

@@ -5,7 +5,7 @@ import React, {
   useEffect,
   useRef,
 } from "react";
-import { NetworkInfoContext } from "utils/models/Context";
+import { NetworkInfoContext } from "../utils/models/Context";
 import "leaflet/dist/leaflet.css";
 import { TimeInfo } from "./TimeInfo";
 import { ClientInfo } from "./ClientInfo";
@@ -17,9 +17,9 @@ export function NetworkInfo() {
 
   const { Info } = useContext(NetworkInfoContext);
   const flagUrl =
-    process.env.REACT_APP_FLAG_IMAGE_URL +
+  import.meta.env.VITE_FLAG_IMAGE_URL +
     Info.country_code2 +
-    process.env.REACT_APP_FLAG_IMAGE_TYPE;
+    import.meta.env.VITE_FLAG_IMAGE_TYPE;
 
   useEffect(() => {
     var icon = L.icon({
