@@ -2,10 +2,10 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { faReact } from "@fortawesome/free-brands-svg-icons";
 import { faHeart,faCoffee } from "@fortawesome/free-solid-svg-icons";
 import React, {  useState } from "react";
-import { Layout } from "./components/Layout";
-import { NetworkInfo } from "./components/NetworkInfo";
-import { ApiResponseType } from "./utils/models/ApiResponse";
-import { NetworkInfoContext } from "./utils/models/Context";
+import { Layout } from "components/Layout";
+import { NetworkInfo } from "components/NetworkInfo";
+import { ApiResponseType } from "utils/models/ApiResponse";
+import { NetworkInfoContext } from "utils/models/Context";
 
 library.add(faReact, faHeart, faCoffee);
 

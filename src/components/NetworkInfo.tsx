@@ -5,7 +5,7 @@ import React, {
   useEffect,
   useRef,
 } from "react";
-import { NetworkInfoContext } from "../utils/models/Context";
+import { NetworkInfoContext } from "utils/models/Context";
 import "leaflet/dist/leaflet.css";
 import { TimeInfo } from "./TimeInfo";
 import { ClientInfo } from "./ClientInfo";

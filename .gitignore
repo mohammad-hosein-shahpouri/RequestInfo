@@ -11,8 +11,9 @@
 /coverage
 
 # production
-/build
-styles.compiled.css
+/[Bb]uild
+/[Dd]ist
+[Ss]tyles.[Cc]ompiled.css
 
 # misc
 .DS_Store

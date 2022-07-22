@@ -1,6 +1,6 @@
 import { Fragment } from "react";
-import { GetHistory } from "../utils/history/History";
-import { History as HistoryModel } from "../utils/models/History";
+import { GetHistory } from "utils/history/History";
+import { History as HistoryModel } from "utils/models/History";
 
 export function History() {
   var history = GetHistory();

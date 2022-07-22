@@ -1,5 +1,5 @@
 import { Fragment, useContext } from "react";
-import { NetworkInfoContext } from "../utils/models/Context";
+import { NetworkInfoContext } from "utils/models/Context";
 
 export function TimeInfo() {
   const { Info } = useContext(NetworkInfoContext);
