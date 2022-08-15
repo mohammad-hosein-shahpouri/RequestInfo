@@ -1,17 +1,22 @@
 import { Fragment } from "react";
 import { GetHistory } from "utils/history/History";
 import { History as HistoryModel } from "utils/models/History";
+import dayjs from "dayjs"
 
 export function History() {
-  var history = GetHistory();
+  var history = GetHistory<{ [key: string]: HistoryModel[] }>();
 
   const connections = () => {
     var items = [];
     var parentIndex = 0
-    for (const key in history) {
+
+    var keys = Object.keys(history).sort((a, b) => dayjs(b).valueOf() - dayjs(a).valueOf())
+    for (const key of keys) {
+
       var historyLogs = history[key] as HistoryModel[];
-      var connectionGroup = [];      
+      var connectionGroup = [];
       let childIndex = 0
+      
       for (const item of historyLogs) {
         connectionGroup.push(
           <div className="flex flex-row justify-between" key={childIndex++}>

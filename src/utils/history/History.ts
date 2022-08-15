@@ -1,3 +1,4 @@
+import dayjs from "dayjs";
 import { History } from "../models/History";
 
 type addToHistoryProps = {
@@ -8,9 +9,9 @@ type addToHistoryProps = {
 export const LocalStorageKey = "History";
 
 export function AddToHistory({ location, locationShort }: addToHistoryProps) {
-  const now = new Date();
-  const time = `${now.getHours()}:${now.getMinutes()}`;
-  const today = `${now.getDate()}/${now.getMonth() + 1}/${now.getFullYear()}`;
+  const now = dayjs(new Date());
+  const time = now.format("HH:mm") 
+  const today = now.format("DD MMMM YYYY") 
 
   var currentConnection: History = {
     Location: location,
@@ -32,6 +33,6 @@ export function AddToHistory({ location, locationShort }: addToHistoryProps) {
   );
 }
 
-export function GetHistory() {
-  return JSON.parse(window.localStorage.getItem(LocalStorageKey)!);
+export function GetHistory<TOutput>() {
+  return JSON.parse(window.localStorage.getItem(LocalStorageKey)!) as TOutput;
 }

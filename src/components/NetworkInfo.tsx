@@ -1,5 +1,5 @@
 import L from "leaflet";
-import React, {
+import {
   Fragment,
   useContext,
   useEffect,
@@ -16,10 +16,7 @@ export function NetworkInfo() {
   const mapRef = useRef<HTMLDivElement>(null);
 
   const { Info } = useContext(NetworkInfoContext);
-  const flagUrl =
-  import.meta.env.VITE_FLAG_IMAGE_URL +
-    Info.country_code2 +
-    import.meta.env.VITE_FLAG_IMAGE_TYPE;
+  const flagUrl = `${import.meta.env["VITE_FLAG_IMAGE_URL"]}${Info.country_code2}${import.meta.env["VITE_FLAG_IMAGE_TYPE"]}`
 
   useEffect(() => {
     var icon = L.icon({
