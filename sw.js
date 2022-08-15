@@ -3,15 +3,12 @@ var urlsToCache = [
     "/RequestInfo/",
     "/RequestInfo/index.html",
     "/RequestInfo/styles.compiled.css",
-    "/RequestInfo/assets/styles.compiled.css.gz",
     "/RequestInfo/manifest.json",
     "/RequestInfo/favicon.svg",
     "/RequestInfo/earth-dark.svg",
     "/RequestInfo/earth-light.svg",
     "/RequestInfo/assets/index.5f014e0e.js",
-    "/RequestInfo/assets/index.5f014e0e.js.gz",
     "/RequestInfo/assets/index.d8313b66.css",
-    "/RequestInfo/assets/index.d8313b66.css.gz",
 ];
 
 self.addEventListener("install", (e) => {
