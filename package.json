@@ -2,7 +2,15 @@
     "name": "request-info",
     "version": "0.1.1",
     "private": false,
+    "author": {
+        "name": "Mohammad Hosein Shahpouri",
+        "email": "mh.shahpouri@gmail.com"
+    },
     "homepage": "https://mohammad-hosein-shahpouri.github.io/RequestInfo/",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/mohammad-hosein-shahpouri/RequestInfo/"
+    },
     "dependencies": {
         "@fortawesome/fontawesome-svg-core": "^6.1.2",
         "@fortawesome/free-brands-svg-icons": "^6.1.2",
@@ -36,8 +44,5 @@
         "preview": "vite preview",
         "predeploy": "npm run build",
         "deploy": "gh-pages -d build -b gh-pages"
-    },
-    "eslintConfig": {
-        "extends": "react-app"
     }
 }
