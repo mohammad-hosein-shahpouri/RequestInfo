@@ -1,4 +1,4 @@
-const cacheKey = "pwa-cache-v1.0.1";
+const cacheKey = "pwa-cache-v1.0.2";
 var urlsToCache = [
     "/RequestInfo/",
     "/RequestInfo/index.html",
@@ -10,22 +10,20 @@ var urlsToCache = [
     "/RequestInfo/assets/index.08f4b14c.js",
 ];
 
-self.addEventListener("install", (e) => {
+self.addEventListener("install", function(event) {
     const preCache = async() => {
         const cache = await caches.open(cacheKey);
         return cache.addAll(urlsToCache);
     };
+    event.waitUntil(preCache());
+})
 
-    e.waitUntil(caches.open(cacheKey).then((c) => c.addAll(urlsToCache)));
-});
-
-self.addEventListener("fetch", (event) => {
+self.addEventListener("fetch", function(event) {
     let url = event.request.url.indexOf(self.location.origin) !== -1 ?
         event.request.url.split(`${self.location.origin}/`)[1] : event.request.url;
 
     let isFileCached = urlsToCache.indexOf(url) !== -1;
-
-    if (isFileCached) {
+    if (isFileCached)
         event.respondWith(
             caches
             .open(cacheKey)
@@ -41,9 +39,8 @@ self.addEventListener("fetch", (event) => {
                 return fetch(event.request);
             })
         );
-    }
 
-    e.respondWith(
+    event.respondWith(
         (async function() {
             const cache = await caches.open(cacheKey);
             const cachedResponse = await cache.match(e.request);
@@ -54,9 +51,12 @@ self.addEventListener("fetch", (event) => {
             return fetch(e.request);
         })()
     );
-});
 
-self.addEventListener("activate", (e) => {
+
+})
+
+self.addEventListener("activate", function(event) {
+
     var cacheList = [cacheKey];
 
     const updateCache = async() => {
@@ -66,7 +66,7 @@ self.addEventListener("activate", (e) => {
         });
     };
 
-    e.waitUntil(
+    event.waitUntil(
         caches
         .open(cacheKey)
         .then((cache) => {
@@ -82,4 +82,4 @@ self.addEventListener("activate", (e) => {
             return self.clients.claim();
         })
     );
-});
+})
