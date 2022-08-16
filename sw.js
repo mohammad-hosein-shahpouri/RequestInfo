@@ -43,12 +43,12 @@ self.addEventListener("fetch", function(event) {
     event.respondWith(
         (async function() {
             const cache = await caches.open(cacheKey);
-            const cachedResponse = await cache.match(e.request);
+            const cachedResponse = await cache.match(event.request);
             if (cachedResponse) {
-                e.waitUntil(cache.add(e.request));
+                event.waitUntil(cache.add(event.request));
                 return cachedResponse;
             }
-            return fetch(e.request);
+            return fetch(event.request);
         })()
     );
 
