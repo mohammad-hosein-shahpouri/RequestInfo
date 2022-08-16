@@ -17,7 +17,7 @@ GetInfoAsync()
     });
 
     root.render(
-        <App data={data} />
+      <App data={data} />
     );
   })
   .catch((err) => {

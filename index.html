@@ -4,14 +4,105 @@
 <head>
     <meta charset="utf-8" />
     <link rel="icon" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
     <meta name="theme-color" content="#094954" />
-    <meta name="description" content="Web site created using vite" />
+    <meta name="description" content="An app that shows you some useful information about your ip address" />
     <link rel="manifest" href="/manifest.json" />
 
-    <link rel="stylesheet" href="/styles.compiled.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 
-    <title>Please Wait...</title>
+    <title>IP Information Detector</title>
+
+    <style>
+         :root {
+            --primary: #0067A5;
+            --light: #e2e2e2;
+        }
+        
+        * {
+            font-family: 'Roboto';
+        }
+        
+        @media (prefers-color-scheme: light) {
+            body {
+                background-color: var(--light);
+            }
+            #loader #earth {
+                border-color: var(--primary) !important;
+                background-color: var(--light);
+            }
+            #loader #earth div {
+                background: url(/RequestInfo/earth-dark.svg);
+            }
+            #loader p {
+                color: var(--primary);
+            }
+        }
+        
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: var(--primary);
+            }
+            #loader #earth {
+                border-color: var(--light) !important;
+                background-color: var(--primary);
+            }
+            #loader #earth div {
+                background: url(/RequestInfo/earth-light.svg);
+            }
+            #loader p {
+                color: var(--light);
+            }
+        }
+        
+        #loader {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        #loader p {
+            text-align: center;
+            font-size: 2rem;
+            white-space: nowrap;
+        }
+        
+        #loader #earth {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            height: 175px;
+            width: 175px;
+            overflow: hidden;
+            border-radius: 50%;
+            border: 5px double;
+        }
+        
+        #loader #earth div {
+            height: 175px;
+            width: 175px;
+            background-size: 575px;
+            animation-name: EarthRoutation;
+            animation-duration: 15s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+        }
+        
+        @keyframes EarthRoutation {
+            from {
+                background-position-x: 0px;
+            }
+            to {
+                background-position-x: 575px;
+            }
+        }
+    </style>
+
 </head>
 
 <body>

@@ -1,9 +1,7 @@
 module.exports = {
-    content: [
-        "./src/**/*.{js,jsx,ts,tsx}",
-    ],
+    content: ["src/**/*.{ts,tsx}"],
     presets: [],
-    darkMode: 'media', // or 'class'
+    darkMode: 'media',
     theme: {
         screens: {
             sm: '640px',
@@ -13,13 +11,17 @@ module.exports = {
             '2xl': '1536px',
         },
         colors: ({ colors }) => ({
-            transparent: colors.transparent,
-            black: colors.black,
-            white: colors.white,
-            info: colors.sky[400],
-            danger: colors.red[700],
-            default: 'var(--default)',
-            secondary: 'var(--secondary)',
+            primary: "var(--primary)",
+            secondary: "var(--secondary)",
+            success: "var(--success)",
+            warning: "var(--warning)",
+            danger: "var(--danger)",
+            info: "var(--info)",
+            dark: "var(--dark)",
+            light: "var(--light)",
+            white: "#fff",
+            black: "#000",
+            transparent: "transparent"
         }),
         columns: {
             auto: 'auto',
@@ -176,6 +178,9 @@ module.exports = {
             '3xl': '1.5rem',
             full: '9999px',
         },
+        borderSpacing: ({ theme }) => ({
+            ...theme('spacing'),
+        }),
         borderWidth: {
             DEFAULT: '1px',
             0: '0px',
@@ -699,7 +704,7 @@ module.exports = {
             8: '8px',
         },
         ringColor: ({ theme }) => ({
-            DEFAULT: theme('colors.blue.500', '#3b82f6'),
+            DEFAULT: theme(`colors.blue.500`, '#3b82f6'),
             ...theme('colors'),
         }),
         ringOffsetColor: ({ theme }) => theme('colors'),

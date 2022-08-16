@@ -64,7 +64,7 @@ export function NetworkInfo() {
       </div>
       <div className="w-11/12 lg:w-5/12">
         <h3 className="text-center mt-2">On Map:</h3>
-        <div className="rounded-lg" ref={mapRef} id="map"></div>
+        <div className="rounded-lg h-[200px] md:h-[350px] border-3 border-primary dark:border-light" ref={mapRef} id="map"></div>
       </div>
 
       <div className="w-full lg:w-5/12">

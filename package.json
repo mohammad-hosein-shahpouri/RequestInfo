@@ -35,8 +35,8 @@
         "vite-plugin-compression": "^0.5.1"
     },
     "scripts": {
-        "watch-css": "npx tailwindcss -i ./src/assets/styles/Styles.css -o ./public/styles.compiled.css --watch",
-        "build-css": "npx tailwindcss -i ./src/assets/styles/Styles.css -o ./public/styles.compiled.css --minify",
+        "watch-css": "npx tailwindcss -i ./src/assets/styles/Styles.css -o ./src/assets/styles/Styles.Compiled.css --watch",
+        "build-css": "npx tailwindcss -i ./src/assets/styles/Styles.css -o ./src/assets/styles/Styles.Compiled.css --minify",
         "predev": "npm run build-css",
         "dev": "vite",
         "prebuild": "npm run build-css",
