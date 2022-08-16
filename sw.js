@@ -6,8 +6,8 @@ var urlsToCache = [
     "/RequestInfo/favicon.svg",
     "/RequestInfo/earth-dark.svg",
     "/RequestInfo/earth-light.svg",
-    "/RequestInfo/assets/index.5f014e0e.js",
-    "/RequestInfo/assets/index.d8313b66.css",
+    "/RequestInfo/assets/index.00bf4df9.css",
+    "/RequestInfo/assets/index.08f4b14c.js",
 ];
 
 self.addEventListener("install", (e) => {
