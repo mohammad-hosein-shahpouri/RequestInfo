@@ -10,31 +10,7 @@
 @layer base {
     *:not(#map *):not(footer *) {
         @apply text-primary dark:text-light select-none;
-    }
-    h1,
-    .h1 {
-        @apply text-3xl;
-    }
-    h2,
-    .h2 {
-        @apply text-2xl;
-    }
-    h3,
-    .h3 {
-        @apply text-xl;
-    }
-    h4,
-    .h4 {
-        @apply text-lg;
-    }
-    h5,
-    .h5 {
-        @apply text-base;
-    }
-    h6,
-    .h6 {
-        @apply text-sm;
-    }
+    }   
 
     hr{
         @apply bg-primary dark:bg-light;
@@ -57,3 +33,20 @@
 body {
     margin: 0;
 }
+
+h4 {
+    font-size: calc(1.275rem + 0.3vw);
+  }
+  
+  h3,
+  .h3 {
+    font-size: calc(1.3rem + 0.6vw);
+  }
+  
+  h2 {
+    font-size: calc(1.325rem + 0.9vw);
+  }
+  
+  h1 {
+    font-size: calc(1.375rem + 1.5vw);
+  }

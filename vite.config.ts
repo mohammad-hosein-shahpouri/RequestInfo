@@ -24,8 +24,9 @@ export default defineConfig({
       ...absolutePathAliases
     }
   },
-  server:{
-    port:  Number(process.env.PORT) || 3000,
+  server: {
+    port: Number(process.env.PORT) || 3000,
+    host: "0.0.0.0"
   },
   plugins: [react(), viteCompression()],
   optimizeDeps: {
