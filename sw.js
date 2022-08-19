@@ -6,7 +6,7 @@ var urlsToCache = [
     "/RequestInfo/favicon.svg",
     "/RequestInfo/earth-dark.svg",
     "/RequestInfo/earth-light.svg",
-    "/RequestInfo/assets/index.00bf4df9.css",
+    "/RequestInfo/assets/index.2b9d8401.css",
     "/RequestInfo/assets/index.08f4b14c.js",
 ];
 
