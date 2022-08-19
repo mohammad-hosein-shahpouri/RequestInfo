@@ -1,4 +1,4 @@
-const cacheKey = "pwa-cache-v1.0.2";
+const cacheKey = "pwa-cache-v1.0.2-alpha";
 var urlsToCache = [
     "/RequestInfo/",
     "/RequestInfo/index.html",
