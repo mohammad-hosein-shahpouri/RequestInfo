@@ -5,7 +5,7 @@ import { GetInfoAsync } from "utils/request/NetworkInformation";
 import { AddToHistory } from "utils/history/History";
 import { RegisterServiceWorker } from "utils/ServiceWorker";
 
-const container = document.getElementById("app")!;
+const container = document.getElementById("react-root")!;
 
 const root = createRoot(container);
 
