@@ -1,6 +1,10 @@
 {
     "short_name": "IP Information Detector",
     "name": "IP Information Detector",
+    "start_url": "/RequestInfo/",
+    "display": "standalone",
+    "theme_color": "#F00",
+    "background_color": "#00F",
     "icons": [{
             "src": "/RequestInfo/favicon.svg",
             "sizes": "512x512",
@@ -20,9 +24,5 @@
             "type": "image/svg+xml",
             "sizes": "300x89"
         }
-    ],
-    "start_url": "/RequestInfo/",
-    "display": "standalone",
-    "theme_color": "#e2e2e2",
-    "background_color": "#094954"
+    ]
 }
