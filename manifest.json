@@ -5,6 +5,7 @@
     "display": "standalone",
     "theme_color": "#094954",
     "background_color": "#094954",
+    "lang": "en-US",
     "icons": [{
             "src": "/RequestInfo/favicon.svg",
             "sizes": "512x512",
