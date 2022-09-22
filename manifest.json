@@ -3,8 +3,8 @@
     "name": "IP Information Detector",
     "start_url": "/RequestInfo/",
     "display": "standalone",
-    "theme_color": "#F00",
-    "background_color": "#00F",
+    "theme_color": "#094954",
+    "background_color": "#094954",
     "icons": [{
             "src": "/RequestInfo/favicon.svg",
             "sizes": "512x512",
