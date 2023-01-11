@@ -2,6 +2,7 @@ module.exports = {
     content: ["src/**/*.{ts,tsx}"],
     presets: [],
     darkMode: 'media',
+    important: true,
     theme: {
         screens: {
             sm: '640px',

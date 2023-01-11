@@ -2,11 +2,15 @@ import { faGithub, faGithubAlt, faGithubSquare, faLinkedin, faReact } from "@for
 import { faCoffee, faHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Fragment, version } from "react";
+import { BmacButton } from "./BmacButton";
 
 export function Footer() {
   const now = new Date();
   return (
     <Fragment>
+
+      <BmacButton />
+
       <footer className=" ">
         <div className="flex flex-col md:flex-row justify-between py-1 px-1 md:px-4">
           <span className="text-center block">

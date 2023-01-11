@@ -45,7 +45,7 @@ export function NetworkInfo() {
       .addTo(map)
       .bindPopup("Your Location")
       .openPopup();
-  });
+  },[]);
 
   return (
     <Fragment>
